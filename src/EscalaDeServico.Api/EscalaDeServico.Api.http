@@ -1,0 +1,6 @@
+@EscalaDeServico.Api_HostAddress = http://localhost:5162
+
+GET {{EscalaDeServico.Api_HostAddress}}/weatherforecast/
+Accept: application/json
+
+###

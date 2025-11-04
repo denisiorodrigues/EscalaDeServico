@@ -1,0 +1,31 @@
+services:
+  # api:
+  #   build: .
+  #   ports:
+  #     - "8080:80"
+  #   environment:
+  #     - ASPNETCORE_ENVIRONMENT=Development
+  #     - ConnectionStrings__DefaultConnection=Server=mysql;Port=3306;Database=escaladeservico;Uid=root;Pwd=password123;
+  #   depends_on:
+  #     - mysql
+  #   networks:
+  #     - escaladeservico-network
+
+  db:
+    image: mysql:8.0
+    environment:
+      MYSQL_ROOT_PASSWORD: password123
+      MYSQL_DATABASE: escaladeservico
+    ports:
+      - "3306:3306"
+    volumes:
+      - mysql-data:/var/lib/mysql
+    networks:
+      - escaladeservico-network
+
+volumes:
+  mysql-data:
+
+networks:
+  escaladeservico-network:
+    driver: bridge
